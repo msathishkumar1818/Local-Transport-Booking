@@ -601,6 +601,10 @@
     grid-template-columns: 1fr;
   }
 
+  .booking-widget-card {
+    padding: 18px 16px;
+  }
+
   .booking-fields-row {
     grid-template-columns: 1fr;
   }

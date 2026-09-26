@@ -434,6 +434,224 @@ document.addEventListener('DOMContentLoaded', () => {
       activateContactTab('formCorporateContract');
     }
   }
+
+  // 11. Custom Select Dropdown Component
+  // Replaces browser-native OS popup menus with sleek, theme-integrated dropdowns that never overflow
+  function initCustomSelects() {
+    const selects = document.querySelectorAll('select.field-select, select.form-input');
+    selects.forEach(select => {
+      if (select.classList.contains('custom-select-initialized')) return;
+      select.classList.add('custom-select-initialized');
+
+      // Create wrapper
+      const wrapper = document.createElement('div');
+      wrapper.className = 'custom-select-wrapper';
+      select.parentNode.insertBefore(wrapper, select);
+      wrapper.appendChild(select);
+
+      // Hide native select visually while keeping accessible
+      select.classList.add('custom-select-native-hidden');
+
+      // Create custom trigger button
+      const trigger = document.createElement('button');
+      trigger.type = 'button';
+      trigger.className = 'custom-select-trigger';
+      trigger.setAttribute('aria-haspopup', 'listbox');
+      trigger.setAttribute('aria-expanded', 'false');
+
+      const triggerText = document.createElement('span');
+      triggerText.className = 'custom-select-text';
+      const curOption = select.options[select.selectedIndex];
+      triggerText.textContent = curOption ? curOption.text : 'Select...';
+
+      const arrow = document.createElement('span');
+      arrow.className = 'custom-select-arrow';
+      arrow.setAttribute('aria-hidden', 'true');
+      arrow.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
+
+      trigger.appendChild(triggerText);
+      trigger.appendChild(arrow);
+      wrapper.appendChild(trigger);
+
+      // Create options list container
+      const optionsContainer = document.createElement('div');
+      optionsContainer.className = 'custom-select-options';
+      optionsContainer.setAttribute('role', 'listbox');
+
+      function buildOptions() {
+        optionsContainer.innerHTML = '';
+        Array.from(select.options).forEach((opt, idx) => {
+          const optEl = document.createElement('div');
+          const isSelected = idx === select.selectedIndex;
+          optEl.className = `custom-select-option ${isSelected ? 'selected' : ''}`;
+          optEl.setAttribute('role', 'option');
+          optEl.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+          optEl.setAttribute('data-value', opt.value);
+
+          const labelSpan = document.createElement('span');
+          labelSpan.textContent = opt.text;
+          optEl.appendChild(labelSpan);
+
+          if (isSelected) {
+            const check = document.createElement('span');
+            check.className = 'opt-check';
+            check.textContent = '✓';
+            optEl.appendChild(check);
+          }
+
+          optEl.addEventListener('click', (e) => {
+            e.stopPropagation();
+            select.selectedIndex = idx;
+            triggerText.textContent = opt.text;
+
+            optionsContainer.querySelectorAll('.custom-select-option').forEach((item, itemIdx) => {
+              item.classList.remove('selected');
+              item.setAttribute('aria-selected', 'false');
+              const oldCheck = item.querySelector('.opt-check');
+              if (oldCheck) oldCheck.remove();
+
+              if (itemIdx === idx) {
+                item.classList.add('selected');
+                item.setAttribute('aria-selected', 'true');
+                const newCheck = document.createElement('span');
+                newCheck.className = 'opt-check';
+                newCheck.textContent = '✓';
+                item.appendChild(newCheck);
+              }
+            });
+
+            closeMenu();
+            trigger.focus();
+
+            // Dispatch change event to trigger any linked logic
+            const evt = new Event('change', { bubbles: true });
+            select.dispatchEvent(evt);
+          });
+
+          optionsContainer.appendChild(optEl);
+        });
+      }
+
+      buildOptions();
+      wrapper.appendChild(optionsContainer);
+
+      function openMenu() {
+        // Close any other open custom selects
+        document.querySelectorAll('.custom-select-wrapper.open').forEach(w => {
+          if (w !== wrapper) {
+            w.classList.remove('open');
+            const otherTrigger = w.querySelector('.custom-select-trigger');
+            if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        wrapper.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeMenu() {
+        wrapper.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (wrapper.classList.contains('open')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      // Keyboard navigation
+      trigger.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          if (!wrapper.classList.contains('open')) {
+            openMenu();
+          } else {
+            const items = Array.from(optionsContainer.querySelectorAll('.custom-select-option'));
+            let currentIdx = select.selectedIndex;
+            if (e.key === 'ArrowDown' && currentIdx < items.length - 1) {
+              items[currentIdx + 1].click();
+            } else if (e.key === 'ArrowUp' && currentIdx > 0) {
+              items[currentIdx - 1].click();
+            }
+          }
+        } else if (e.key === 'Escape' && wrapper.classList.contains('open')) {
+          e.preventDefault();
+          closeMenu();
+        }
+      });
+
+      // If native select is changed programmatically
+      select.addEventListener('change', () => {
+        const curOpt = select.options[select.selectedIndex];
+        if (curOpt) {
+          triggerText.textContent = curOpt.text;
+          buildOptions();
+        }
+      });
+
+      // Connect associated label if any
+      if (select.id) {
+        const label = document.querySelector(`label[for="${select.id}"]`);
+        if (label) {
+          label.addEventListener('click', (e) => {
+            e.preventDefault();
+            trigger.focus();
+            if (!wrapper.classList.contains('open')) {
+              openMenu();
+            }
+          });
+        }
+      }
+    });
+
+    // Close any open select on click outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.custom-select-wrapper')) {
+        document.querySelectorAll('.custom-select-wrapper.open').forEach(w => {
+          w.classList.remove('open');
+          const t = w.querySelector('.custom-select-trigger');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.custom-select-wrapper.open').forEach(w => {
+          w.classList.remove('open');
+          const t = w.querySelector('.custom-select-trigger');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  }
+
+  initCustomSelects();
+
+  // 12. Instant Ride Dispatch Widget Dynamic Fare (Homepage)
+  const homeRideCategory = document.getElementById('rideCategory');
+  const homeFareValue = document.querySelector('.booking-widget-card .fare-value');
+  if (homeRideCategory && homeFareValue) {
+    homeRideCategory.addEventListener('change', () => {
+      switch (homeRideCategory.value) {
+        case 'ev':
+          homeFareValue.textContent = '₹55 - ₹70';
+          break;
+        case 'share':
+          homeFareValue.textContent = '₹25 - ₹40';
+          break;
+        case 'metered':
+        default:
+          homeFareValue.textContent = '₹65 - ₹80';
+          break;
+      }
+    });
+  }
 });
 
 
