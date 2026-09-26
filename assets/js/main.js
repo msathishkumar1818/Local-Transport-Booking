@@ -323,19 +323,80 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 9. Active Navigation Highlighter
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  const navLinks = document.querySelectorAll('.nav-link, .dropdown-item a, .mobile-nav-link');
-  navLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
-      link.classList.add('active');
-      // If it's a dropdown child, also highlight the parent toggle
-      const parentDropdown = link.closest('.nav-item');
-      if (parentDropdown) {
-        const toggle = parentDropdown.querySelector('.dropdown-toggle');
-        if (toggle) toggle.classList.add('active');
+  // 9. Active Navigation Highlighter & Dynamic Home Label (Home 1 vs Home 2)
+  let rawPath = window.location.pathname.split('/').pop().toLowerCase();
+  if (!rawPath || rawPath === '' || rawPath === '/') {
+    rawPath = 'index.html';
+  }
+  rawPath = rawPath.split('?')[0].split('#')[0];
+
+  const isHome1 = rawPath === 'index.html';
+  const isHome2 = rawPath === 'home-2.html';
+  const homeSubmenuLinks = document.querySelectorAll('#homeDropdownMenu a, #mobileHomeSubmenu a');
+
+  if (isHome1 || isHome2) {
+    const labelText = isHome1 ? 'Home 1' : 'Home 2';
+
+    // 1. Update Desktop Home Toggle
+    if (homeDropdownToggle) {
+      homeDropdownToggle.classList.add('active');
+      const labelSpan = homeDropdownToggle.querySelector('.home-nav-label');
+      if (labelSpan) {
+        labelSpan.textContent = labelText;
+      } else {
+        homeDropdownToggle.childNodes.forEach(node => {
+          if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) {
+            node.textContent = labelText + ' ';
+          }
+        });
       }
+    }
+
+    // 2. Update Mobile Accordion Toggle
+    if (mobileAccordionToggle) {
+      mobileAccordionToggle.classList.add('active');
+      const span = mobileAccordionToggle.querySelector('span');
+      if (span) {
+        span.textContent = labelText;
+      }
+    }
+
+    // 3. Highlight only the matching dropdown item
+    homeSubmenuLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if ((isHome1 && href === 'index.html') || (isHome2 && href === 'home-2.html')) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  } else {
+    // Non-home pages: remove active state from Home toggles
+    if (homeDropdownToggle) {
+      homeDropdownToggle.classList.remove('active');
+      const labelSpan = homeDropdownToggle.querySelector('.home-nav-label');
+      if (labelSpan) {
+        labelSpan.textContent = 'Home';
+      }
+    }
+    if (mobileAccordionToggle) {
+      mobileAccordionToggle.classList.remove('active');
+      const span = mobileAccordionToggle.querySelector('span');
+      if (span) {
+        span.textContent = 'Home';
+      }
+    }
+    homeSubmenuLinks.forEach(link => link.classList.remove('active'));
+  }
+
+  // Highlight all other navigation links matching current path
+  const otherNavLinks = document.querySelectorAll('.desktop-nav .nav-link:not(.dropdown-toggle), .mobile-nav-list .mobile-nav-link:not(.mobile-accordion-toggle)');
+  otherNavLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === rawPath) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
     }
   });
 

@@ -774,18 +774,28 @@ button, input, select, textarea {
 }
 
 .mobile-accordion-menu a {
-  display: block;
-  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
   color: #FFFFFF;
   font-size: 0.92rem;
   font-weight: 600;
   white-space: nowrap;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-smooth);
 }
 
-.mobile-accordion-menu a:hover,
+.mobile-accordion-menu a:hover {
+  color: var(--primary-yellow) !important;
+  background-color: rgba(255, 196, 0, 0.08);
+}
+
 .mobile-accordion-menu a.active {
-  color: var(--primary-yellow);
-  font-weight: 700;
+  color: var(--primary-yellow) !important;
+  background-color: rgba(255, 196, 0, 0.15) !important;
+  font-weight: 800 !important;
+  border-left: 3px solid var(--primary-yellow);
 }
 
 /* Mobile Controls Footer */
@@ -5752,11 +5762,30 @@ html:not([data-theme="dark"]) .mobile-drawer {
   background-color: #111111 !important;
 }
 
-[data-theme="light"] .mobile-nav-link,
-html:not([data-theme="dark"]) .mobile-nav-link,
-[data-theme="light"] .mobile-accordion-menu a,
-html:not([data-theme="dark"]) .mobile-accordion-menu a {
+[data-theme="light"] .mobile-nav-link:not(.active),
+html:not([data-theme="dark"]) .mobile-nav-link:not(.active),
+[data-theme="light"] .mobile-accordion-menu a:not(.active),
+html:not([data-theme="dark"]) .mobile-accordion-menu a:not(.active) {
   color: #FFFFFF !important;
+}
+
+[data-theme="light"] .mobile-nav-link.active,
+html:not([data-theme="dark"]) .mobile-nav-link.active {
+  color: #111111 !important;
+  background-color: var(--primary-yellow) !important;
+}
+
+[data-theme="light"] .mobile-nav-link.active svg,
+html:not([data-theme="dark"]) .mobile-nav-link.active svg {
+  stroke: #111111 !important;
+}
+
+[data-theme="light"] .mobile-accordion-menu a.active,
+html:not([data-theme="dark"]) .mobile-accordion-menu a.active {
+  color: var(--primary-yellow) !important;
+  background-color: rgba(255, 196, 0, 0.15) !important;
+  font-weight: 800 !important;
+  border-left: 3px solid var(--primary-yellow) !important;
 }
 
 [data-theme="light"] .mobile-drawer .brand-title,
