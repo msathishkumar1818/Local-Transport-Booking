@@ -659,7 +659,12 @@ button, input, select, textarea {
 }
 
 .mobile-drawer-header {
-  display: none; /* Fixed site header above already provides brand identity and the Into-Mark (X) toggle */
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .mobile-brand {
@@ -668,16 +673,47 @@ button, input, select, textarea {
   gap: 10px;
 }
 
+.mobile-brand .brand-title {
+  color: #FFFFFF !important;
+  font-size: 1.15rem !important;
+  font-weight: 900 !important;
+  line-height: 1.1;
+}
+
+.mobile-brand .brand-title span {
+  color: var(--primary-yellow) !important;
+}
+
+.mobile-brand .brand-subtitle,
+.mobile-drawer .brand-subtitle {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-size: 0.60rem !important;
+  letter-spacing: 0.8px !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  display: block !important;
+  line-height: 1.1 !important;
+  margin-top: 2px !important;
+}
+
 .mobile-close-btn {
-  background: transparent;
-  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: var(--white);
   cursor: pointer;
-  padding: 4px;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
 }
 
 .mobile-close-btn:hover {
-  color: var(--primary-yellow);
+  background-color: var(--primary-yellow);
+  color: #111111;
+  border-color: var(--primary-yellow);
 }
 
 .mobile-nav-list {
@@ -4841,27 +4877,59 @@ button, input, select, textarea {
 
 .contact-tabs-row {
   display: flex;
-  border-bottom: 2px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 5px;
+  border-radius: var(--radius-md);
   margin-bottom: 24px;
+  gap: 6px;
 }
 
 .contact-tab-btn {
   flex: 1;
   background: transparent;
   border: none;
-  padding: 12px;
+  padding: 10px 12px;
   font-weight: 700;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   color: var(--text-muted);
-  border-bottom: 3px solid transparent;
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: var(--transition-smooth);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: center;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-tab-btn:hover {
+  color: var(--text-primary);
+  background-color: rgba(255, 196, 0, 0.12);
 }
 
 .contact-tab-btn.active {
-  color: var(--text-primary);
-  border-bottom-color: var(--primary-yellow);
+  color: #111111 !important;
+  background-color: var(--primary-yellow) !important;
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .contact-tabs-row,
+html:not([data-theme="dark"]) .contact-tabs-row {
+  background-color: #F3F4F6;
+  border-color: #E5E7EB;
+}
+
+[data-theme="light"] .contact-tab-btn,
+html:not([data-theme="dark"]) .contact-tab-btn {
+  color: #4B5563;
+}
+
+[data-theme="light"] .contact-tab-btn.active,
+html:not([data-theme="dark"]) .contact-tab-btn.active {
+  color: #111111 !important;
+  background-color: var(--primary-yellow) !important;
 }
 
 .contact-form-body {
@@ -5533,6 +5601,7 @@ html:not([data-theme="dark"]) .login-card-top-bar .brand-subtitle {
 }
 
 
+/* ==========================================================================
    DARK SECTIONS & HEROES: ABSOLUTE BRIGHT WHITE ENFORCEMENT (All Themes)
    Regardless of theme, all content directly on dark backgrounds (.section-dark,
    hero, CTA banners, footer) must be 100% bright, crisp pure white (#FFFFFF).
