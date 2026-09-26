@@ -1,0 +1,908 @@
+/* ==========================================================================
+   LOCAL TRANSPORT BOOKING - RESPONSIVE STYLESHEET
+   Breakpoints: 320px, 375px, 425px, 768px, 820px, 1024px, 1280px, 1440px+
+   ========================================================================== */
+
+/* Desktop Screens (> 1150px): Guarantee Mobile Drawer and Backdrop Are Strictly Hidden */
+@media (min-width: 1151px) {
+  .mobile-drawer-overlay,
+  .mobile-drawer,
+  .mobile-drawer-overlay.open {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
+/* Tablet & Mobile Nav Switch (< 1150px, covers iPad Pro 1032px & iPad Mini 768px) */
+@media (max-width: 1150px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  :root {
+    --header-height: 54px;
+  }
+
+  .mobile-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-header {
+    height: 54px !important;
+  }
+
+  body {
+    padding-top: 54px !important;
+  }
+
+  /* Remove login button from mobile header */
+  .header-actions .btn-login {
+    display: none !important;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px 40px;
+  }
+
+  /* Home 1 Section Breakpoints */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .hero-img-frame img {
+    height: 380px;
+  }
+
+  .coverage-grid,
+  .standards-grid,
+  .cta-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .fleet-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .metrics-content {
+    padding: 40px 24px;
+  }
+
+  .cta-banner-card {
+    padding: 36px 24px;
+  }
+
+  /* Home 2 Section Breakpoints */
+  .hero-express-wrap {
+    min-height: 700px;
+    padding: 100px 0 90px;
+  }
+
+  .hero-express-title {
+    font-size: 2.5rem;
+  }
+
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .corridor-wrap-grid,
+  .community-grid,
+  .night-shield-content,
+  .corporate-cta-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .night-shield-card,
+  .corporate-cta-wrap {
+    padding: 36px 24px;
+  }
+
+  /* About Page Section Breakpoints */
+  .about-hero-grid,
+  .dispatch-ops-grid,
+  .about-cta-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .about-hero-title {
+    font-size: 2.4rem;
+  }
+
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .ops-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .milestones-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .about-cta-card {
+    padding: 36px 24px;
+  }
+
+  /* How to Book Page Breakpoints */
+  .book-hero-grid,
+  .advance-booking-grid,
+  .book-cta-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .advance-booking-card {
+    grid-template-columns: 1fr;
+  }
+
+  .advance-card-media {
+    min-height: 320px;
+    height: 340px;
+  }
+
+  .advance-card-content {
+    padding: 36px 30px;
+  }
+
+  .book-hero-title {
+    font-size: 2.4rem;
+  }
+
+  .channels-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .payments-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .book-cta-card {
+    padding: 36px 24px;
+  }
+
+  /* Fare Calculator Page Breakpoints */
+  .fare-hero-grid,
+  .zone-matrix-grid,
+  .fare-cta-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .tariffs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .transparency-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .fare-cta-card {
+    padding: 36px 24px;
+  }
+
+  /* Safety Features Page Breakpoints */
+  .safety-hero-grid,
+  .safety-ops-grid,
+  .safety-cta-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .telemetry-command-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .verification-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .night-safety-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .safety-cta-card {
+    padding: 36px 24px;
+  }
+
+  /* Contact Page Breakpoints */
+  .contact-hero-grid,
+  .contact-forms-grid,
+  .contact-cta-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .contact-channels-grid,
+  .map-stands-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .contact-cta-card {
+    padding: 36px 24px;
+  }
+
+  /* Dedicated Login Page Breakpoints */
+  .login-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .login-visual-frame img {
+    height: 300px !important;
+    min-height: 300px !important;
+  }
+
+  .login-form-card {
+    padding: 22px 20px 28px;
+    height: auto !important;
+  }
+
+  .login-card-top-bar {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+}
+
+/* Medium Devices (Tablets, < 768px) */
+@media (max-width: 768px) {
+
+  :root {
+    --header-height: 50px;
+  }
+
+  .site-header {
+    height: 50px !important;
+  }
+
+  body {
+    padding-top: 50px !important;
+  }
+
+  .brand-link {
+    gap: 8px;
+  }
+
+  .brand-title {
+    font-size: 1rem;
+    line-height: 1.1;
+  }
+
+  .brand-subtitle {
+    display: block !important;
+    font-size: 0.60rem !important;
+    letter-spacing: 0.8px !important;
+    line-height: 1 !important;
+    margin-top: 1px !important;
+    color: rgba(255, 255, 255, 0.78) !important;
+    white-space: nowrap !important;
+  }
+
+  .brand-icon-box {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Remove login button from mobile header */
+  .header-actions .btn-login {
+    display: none !important;
+  }
+
+  .hero-express-wrap {
+    min-height: 640px;
+    padding: 85px 0 75px;
+  }
+
+  .hero-title,
+  .hero-express-title,
+  .about-hero-title,
+  .book-hero-title,
+  .safety-hero-title,
+  .contact-hero-title {
+    font-size: 2rem;
+  }
+
+  .contact-channels-grid,
+  .map-stands-row,
+  .form-row-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-hero-frame img,
+  .contact-side-frame img {
+    height: 300px;
+  }
+
+
+  .verification-grid,
+  .night-safety-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .safety-hero-frame img,
+  .safety-console-wrap img {
+    height: 300px;
+  }
+
+
+  .tariffs-grid,
+  .transparency-grid,
+  .calc-grid-row {
+    grid-template-columns: 1fr;
+  }
+
+  .fare-hero-frame img,
+  .zone-photo-wrap img {
+    height: 300px;
+  }
+
+
+  .channels-grid,
+  .payments-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .book-hero-frame img,
+  .advance-photo-wrap img {
+    height: 300px;
+  }
+
+  .advance-card-media {
+    min-height: 260px;
+    height: 280px;
+  }
+
+  .advance-card-content {
+    padding: 28px 22px;
+  }
+
+  .advance-card-title {
+    font-size: 1.65rem;
+  }
+
+
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .milestones-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ops-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ops-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .ops-gallery-frame {
+    height: 280px;
+  }
+
+  .about-hero-frame img,
+  .dispatch-photo-wrap img {
+    height: 300px;
+  }
+
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .night-badges-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .telemetry-command-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .telemetry-status-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .status-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .corridor-photo-frame img,
+  .community-photo-wrap img {
+    height: 300px;
+  }
+
+  /* Express Corridors Card Alignment & Clean Layout */
+  .corridor-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 16px 20px;
+  }
+
+  .corridor-info {
+    width: 100%;
+  }
+
+  .corridor-route-name {
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    line-height: 1.35;
+    width: 100%;
+  }
+
+  .corridor-route-name span {
+    display: inline;
+  }
+
+  .corridor-origin,
+  .corridor-dest {
+    display: inline-block;
+    white-space: nowrap !important;
+  }
+
+  .corridor-arrow {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-yellow);
+    flex-shrink: 0;
+  }
+
+  .corridor-route-meta {
+    margin-top: 5px;
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+
+  .corridor-fare-box {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-top: 10px;
+    margin-top: 2px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.14);
+    text-align: left;
+  }
+
+  html:not([data-theme="dark"]) .corridor-fare-box,
+  [data-theme="light"] .corridor-fare-box {
+    border-top-color: rgba(0, 0, 0, 0.1);
+  }
+
+  [dir="rtl"] .corridor-fare-box {
+    text-align: right;
+  }
+
+  .corridor-fare-lbl {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    order: 1;
+  }
+
+  .corridor-fare-val {
+    font-size: 1.35rem;
+    line-height: 1;
+    order: 2;
+  }
+
+  /* Zone Matrix Card Layout on Mobile */
+  .zone-row-card {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .zone-from-to {
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
+  /* Fare Calculator Breakdown Alignment */
+  .calc-breakdown-box {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .breakdown-lbl {
+    font-size: 0.74rem;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+  }
+
+  .breakdown-dist {
+    font-size: 1.05rem;
+    margin-top: 2px;
+  }
+
+  .breakdown-total {
+    font-size: 1.6rem;
+    line-height: 1.1;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .fleet-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .coverage-nodes-list {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-fields-row {
+    grid-template-columns: 1fr;
+  }
+
+  .widget-submit-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .fare-preview {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: var(--radius-sm);
+  }
+
+  html:not([data-theme="dark"]) .fare-preview,
+  [data-theme="light"] .fare-preview {
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  .widget-submit-row .btn {
+    width: 100%;
+  }
+
+  .standards-media-wrap img,
+  .coverage-photo-box img {
+    height: 300px;
+  }
+
+  /* Tablet Footer Layout (iPad Mini 768px, iPad Air) */
+  .site-footer {
+    padding: 56px 0 32px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px 40px;
+    padding-bottom: 40px;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding-top: 24px;
+    gap: 20px;
+  }
+
+  [dir="rtl"] .footer-bottom {
+    text-align: right;
+  }
+
+  .footer-bottom-copy {
+    text-align: left;
+  }
+
+  [dir="rtl"] .footer-bottom-copy {
+    text-align: right;
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    flex-wrap: nowrap;
+  }
+
+  .footer-bottom-links a {
+    white-space: nowrap;
+    font-size: 0.85rem;
+  }
+}
+
+/* Mobile Screen Footer (< 600px) */
+@media (max-width: 600px) {
+  .site-footer {
+    padding-bottom: 84px !important;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 14px !important;
+    text-align: center !important;
+    align-items: center !important;
+    padding-top: 20px !important;
+  }
+
+  .footer-bottom-copy {
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  .footer-bottom-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px 18px !important;
+    width: 100% !important;
+  }
+
+  .footer-bottom-links a {
+    white-space: nowrap !important;
+    font-size: 0.82rem !important;
+  }
+
+  .scroll-to-top {
+    bottom: 18px !important;
+    right: 18px !important;
+  }
+}
+
+/* Small Mobile (< 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  :root {
+    --header-height: 48px;
+  }
+
+  .site-header {
+    height: 48px !important;
+  }
+
+  body {
+    padding-top: 48px !important;
+  }
+
+  .brand-link {
+    gap: 7px;
+  }
+
+  .brand-title {
+    font-size: 0.90rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .brand-subtitle {
+    display: block !important;
+    font-size: 0.52rem !important;
+    letter-spacing: 0.5px !important;
+    line-height: 1 !important;
+    margin-top: 1px !important;
+    color: rgba(255, 255, 255, 0.75) !important;
+    white-space: nowrap !important;
+  }
+
+  .brand-icon-box {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .header-actions .btn-login {
+    display: none !important;
+  }
+
+  /* Ensure text inside mobile drawer login button is visible */
+  .mobile-drawer-footer .btn-login {
+    display: flex !important;
+    width: 100% !important;
+  }
+
+  .mobile-drawer-footer .btn-login span {
+    display: inline-block !important;
+    color: #111111 !important;
+    font-weight: 800 !important;
+    font-size: 0.95rem !important;
+    text-transform: uppercase !important;
+  }
+
+  .mobile-drawer {
+    width: 100%;
+    max-width: 100vw;
+    border-left: none;
+    top: 48px;
+    height: calc(100vh - 48px);
+    height: calc(100dvh - 48px);
+  }
+
+  .hero-express-wrap {
+    min-height: 560px;
+    padding: 70px 0 60px;
+  }
+
+  .hero-title {
+    font-size: 1.65rem;
+  }
+
+  .hero-img-frame img {
+    height: 280px;
+  }
+
+  .hero-float-badge {
+    position: static;
+    margin-top: 14px;
+    width: 100%;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-stat-box {
+    padding: 16px;
+  }
+
+  .metric-number {
+    font-size: 1.9rem;
+  }
+
+  .cta-title {
+    font-size: 1.65rem;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-actions .btn {
+    width: 100%;
+  }
+
+  .advance-card-media {
+    min-height: 220px;
+    height: 240px;
+  }
+
+  .advance-card-content {
+    padding: 24px 18px;
+  }
+
+  .advance-card-title {
+    font-size: 1.45rem;
+  }
+
+  .advance-card-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .advance-meta-sep {
+    display: none;
+  }
+
+  .advance-enquiry-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .status-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .status-stats-tag,
+  .status-hotline-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .corridor-route-name {
+    font-size: 0.98rem;
+    gap: 5px 8px;
+  }
+
+  .zone-row-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .zone-fare-pill {
+    align-self: flex-start;
+  }
+
+  [dir="rtl"] .zone-fare-pill {
+    align-self: flex-end;
+  }
+
+  .footer-bottom-links {
+    gap: 8px 14px;
+  }
+
+  .footer-bottom-links a {
+    font-size: 0.8rem;
+  }
+}
+
+/* Ultra Small (320px) */
+@media (max-width: 340px) {
+  .brand-link {
+    gap: 6px;
+  }
+
+  .brand-title {
+    font-size: 0.84rem !important;
+  }
+
+  .brand-subtitle {
+    display: block !important;
+    font-size: 0.48rem !important;
+    letter-spacing: 0.4px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  .brand-icon-box {
+    width: 26px !important;
+    height: 26px !important;
+  }
+}

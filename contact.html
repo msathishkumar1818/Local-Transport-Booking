@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Partner Onboarding — AutoRik Central Hub</title>
+  <meta name="description"
+    content="Get in touch with AutoRik dispatch: booking enquiries, verified driver partner registrations, corporate commute contracts, and 24/7 emergency support.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/images/icons/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css?v=3.4">
+  <link rel="stylesheet" href="assets/css/responsive.css?v=3.4">
+</head>
+
+<body>
+
+  <!-- Branded Site Loader -->
+  <div class="site-loader" id="siteLoader" aria-label="Loading page">
+    <div class="loader-content">
+      <div class="loader-logo-ring">
+        <img src="assets/images/icons/logo.svg" alt="AutoRik" width="54" height="54" class="loader-logo-img">
+        <div class="loader-spin-ring"></div>
+      </div>
+      <div class="loader-title">Auto<span>Rik</span></div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar-fill"></div>
+      </div>
+      <div class="loader-status">Connecting City Fleet...</div>
+    </div>
+  </div>
+
+  <!-- Fixed Header (Single-Line Compact Header) -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="AutoRik Home">
+        <div class="brand-icon-box" aria-hidden="true">
+          <img src="assets/images/icons/logo.svg" alt="AutoRik Brand Logo" width="40" height="40">
+        </div>
+        <div class="brand-text-wrap">
+          <div class="brand-title">Auto<span>Rik</span></div>
+          <div class="brand-subtitle">City Ride Network</div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation (Exactly 6 Primary Items) -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <button type="button" class="nav-link dropdown-toggle" id="homeDropdownToggle" aria-expanded="false"
+              aria-haspopup="true">
+              Home
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <ul class="dropdown-menu" id="homeDropdownMenu" role="menu">
+              <li class="dropdown-item" role="none"><a href="index.html" role="menuitem">Home 1 (Transit Hub)</a></li>
+              <li class="dropdown-item" role="none"><a href="home-2.html" role="menuitem">Home 2 (Metro Express)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="how-to-book.html" class="nav-link">How to Book</a></li>
+          <li class="nav-item"><a href="fare-calculator.html" class="nav-link">Fare Calculator</a></li>
+          <li class="nav-item"><a href="safety.html" class="nav-link">Safety Features</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Utilities & Login Button -->
+      <div class="header-actions">
+        <div class="header-action-controls">
+          <button type="button" class="ctrl-btn rtl-toggle-btn" aria-label="Toggle RTL text direction">
+            <span class="ctrl-icon-dot"></span>
+            <span class="rtl-text-label">RTL</span>
+          </button>
+          <div class="ctrl-divider" aria-hidden="true"></div>
+          <button type="button" class="ctrl-btn theme-toggle-btn" aria-label="Toggle dark mode">
+            <span class="theme-icon-wrap" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </span>
+          </button>
+        </div>
+        <a href="login.html" class="btn-login" aria-label="Go to Account Login">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+            <polyline points="10 17 15 12 10 7" />
+            <line x1="15" y1="12" x2="3" y2="12" />
+          </svg>
+          <span>Login</span>
+        </a>
+        <button type="button" class="mobile-toggle-btn" id="mobileToggleBtn" aria-label="Open mobile navigation menu"
+          aria-expanded="false">
+          <span class="hamburger-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round">
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </span>
+          <span class="close-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer-overlay" id="mobileDrawerOverlay" role="dialog" aria-modal="true"
+    aria-label="Mobile Navigation">
+    <div class="mobile-drawer">
+      <div class="mobile-drawer-header">
+        <div class="mobile-brand">
+          <div class="brand-icon-box">
+            <img src="assets/images/icons/logo.svg" alt="AutoRik Brand Logo" width="36" height="36">
+          </div>
+          <div class="brand-text-wrap">
+            <div class="brand-title">Auto<span>Rik</span></div>
+            <div class="brand-subtitle">City Ride Network</div>
+          </div>
+        </div>
+        <button type="button" class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close mobile menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <ul class="mobile-nav-list">
+        <li>
+          <button type="button" class="mobile-nav-link mobile-accordion-toggle" id="mobileHomeAccordion"
+            aria-expanded="false">
+            <span>Home</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <ul class="mobile-accordion-menu" id="mobileHomeSubmenu">
+            <li><a href="index.html">Home 1 (Transit Hub)</a></li>
+            <li><a href="home-2.html">Home 2 (Metro Express)</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html" class="mobile-nav-link">About</a></li>
+        <li><a href="how-to-book.html" class="mobile-nav-link">How to Book</a></li>
+        <li><a href="fare-calculator.html" class="mobile-nav-link">Fare Calculator</a></li>
+        <li><a href="safety.html" class="mobile-nav-link">Safety Features</a></li>
+        <li><a href="contact.html" class="mobile-nav-link active">Contact</a></li>
+      </ul>
+
+      <div class="mobile-drawer-footer">
+        <a href="login.html" class="btn btn-primary btn-login" style="width:100%; justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+            <polyline points="10 17 15 12 10 7" />
+            <line x1="15" y1="12" x2="3" y2="12" />
+          </svg>
+          <span>Account Login</span>
+        </a>
+        <div class="mobile-control-row">
+          <div class="header-action-controls" style="width: 100%; justify-content: space-around;">
+            <button type="button" class="ctrl-btn rtl-toggle-btn" aria-label="Toggle RTL text direction">
+              <span class="ctrl-icon-dot"></span>
+              <span class="rtl-text-label">RTL</span>
+            </button>
+            <div class="ctrl-divider" aria-hidden="true"></div>
+            <button type="button" class="ctrl-btn theme-toggle-btn" aria-label="Toggle dark mode">
+              <span class="theme-icon-wrap" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- =======================================================================
+         CONTACT - SECTION 1: HERO SECTION
+         ======================================================================= -->
+    <section class="contact-hero-wrap" aria-labelledby="contactHeroHeading">
+      <div class="container">
+        <div class="contact-hero-grid">
+          <div>
+            <div class="eyebrow">Connect with Central Dispatch</div>
+            <h1 class="contact-hero-title" id="contactHeroHeading">
+              We Are Active 24/7 Across <span>Every Hub</span>
+            </h1>
+            <p class="contact-hero-desc">
+              Whether you need to organize a corporate commute contract, register your auto rickshaw as a certified
+              driver partner, or track an item left behind, our central team is ready to assist.
+            </p>
+            <div class="contact-meta-pills">
+              <div class="contact-pill-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                <span>Toll-Free: 1800-425-7455</span>
+              </div>
+              <div class="contact-pill-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 14 14" />
+                </svg>
+                <span>Avg Response: &lt; 45 Seconds</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-hero-frame">
+            <img src="assets/images/services/p38.jpg"
+              alt="Active central dispatch communication hub and customer support desk" width="560" height="440"
+              loading="eager">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         CONTACT - SECTION 2: FORMS (Booking Enquiry + Driver Onboard + Corporate)
+         ======================================================================= -->
+    <section class="section section-light" id="forms" aria-labelledby="formsHeading">
+      <div class="container">
+        <div class="contact-forms-grid">
+          <div class="form-container-card">
+            <div class="contact-tabs-row" role="tablist">
+              <button type="button" class="contact-tab-btn active" data-tab="formBookingEnquiry" role="tab">Ride
+                Enquiry</button>
+              <button type="button" class="contact-tab-btn" data-tab="formDriverReg" role="tab">Driver
+                Registration</button>
+              <button type="button" class="contact-tab-btn" data-tab="formCorporateContract" role="tab">Corporate
+                Pass</button>
+            </div>
+
+            <!-- Form 1: Passenger Booking Enquiry -->
+            <form class="contact-form-body" id="formBookingEnquiry"
+              onsubmit="event.preventDefault(); alert('Booking enquiry submitted successfully. Our dispatcher will contact you within 5 minutes.');">
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="enqName">Your Name</label>
+                  <input type="text" id="enqName" class="form-input" placeholder="Kavitha Raman" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="enqPhone">Phone Number</label>
+                  <input type="tel" id="enqPhone" class="form-input" placeholder="+91 98765 43210" required>
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="enqPickup">Pickup Location</label>
+                  <input type="text" id="enqPickup" class="form-input" placeholder="e.g. Guindy Metro Gate 2" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="enqDrop">Destination</label>
+                  <input type="text" id="enqDrop" class="form-input" placeholder="e.g. DLF Cybercity" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="enqMsg">Specific Requirements (Optional)</label>
+                <textarea id="enqMsg" class="form-textarea"
+                  placeholder="Luggage details, early morning timing, or EV fleet preference..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Ride Enquiry</button>
+            </form>
+
+            <!-- Form 2: Driver Partner Onboarding -->
+            <form class="contact-form-body hidden" id="formDriverReg"
+              onsubmit="event.preventDefault(); alert('Driver registration details received. Our verification team will verify your RTO details within 24 hours.');">
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="drvName">Driver Legal Name</label>
+                  <input type="text" id="drvName" class="form-input" placeholder="Murugan S." required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="drvPhone">Mobile Number</label>
+                  <input type="tel" id="drvPhone" class="form-input" placeholder="+91 98765 43210" required>
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="drvAutoNum">Vehicle Plate Number</label>
+                  <input type="text" id="drvAutoNum" class="form-input" placeholder="TN 02 CD 5678" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="drvStand">Preferred Stand Hub</label>
+                  <select id="drvStand" class="form-input">
+                    <option value="central">Central Railway Station Stand</option>
+                    <option value="airport">Airport Terminal Stand</option>
+                    <option value="omr">OMR IT Corridor Stand</option>
+                    <option value="anna">Anna Nagar Stand</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="drvLicense">Commercial Driver License Number</label>
+                <input type="text" id="drvLicense" class="form-input" placeholder="DL-0420110012345" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Driver Partner
+                Application</button>
+            </form>
+
+            <!-- Form 3: Corporate Commute Contract -->
+            <form class="contact-form-body hidden" id="formCorporateContract"
+              onsubmit="event.preventDefault(); alert('Corporate contract enquiry submitted. Our enterprise mobility manager will share a customized proposal today.');">
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="corpCompany">Company / Enterprise Name</label>
+                  <input type="text" id="corpCompany" class="form-input" placeholder="Acme Technologies Pvt Ltd"
+                    required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="corpContact">Contact Person</label>
+                  <input type="text" id="corpContact" class="form-input" placeholder="HR Manager / Admin Lead" required>
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="corpEmail">Official Corporate Email</label>
+                  <input type="email" id="corpEmail" class="form-input" placeholder="admin@acme.com" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="corpEmployees">Estimated Daily Commuters</label>
+                  <select id="corpEmployees" class="form-input">
+                    <option value="small">10 - 50 Employees</option>
+                    <option value="medium">50 - 200 Employees</option>
+                    <option value="large">200+ Enterprise Fleet</option>
+                  </select>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Request Corporate Mobility
+                Proposal</button>
+            </form>
+          </div>
+
+          <!-- Side Photography Frame -->
+          <div>
+            <div class="contact-side-frame">
+              <img src="assets/images/services/p39.jpg" alt="Professional verified driver partner joining AutoRik fleet"
+                width="540" height="480" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         CONTACT - SECTION 3: DIRECT CONTACT CHANNELS (3 Even Cards)
+         ======================================================================= -->
+    <section class="section section-dark" aria-labelledby="channelsTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Dedicated Desks</div>
+          <h2 class="section-title" id="channelsTitle">Direct Communication Channels</h2>
+          <p class="section-desc">
+            Reach out directly to specialized departments for swift resolution.
+          </p>
+        </div>
+
+        <div class="contact-channels-grid">
+          <div class="support-channel-card">
+            <div class="support-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+            </div>
+            <h3 class="support-title">Passenger Dispatch Desk</h3>
+            <p class="support-sub">Immediate auto hails, station pickups, and live booking updates.</p>
+            <div class="support-detail-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span>1800-425-7455 (Toll-Free)</span>
+            </div>
+            <div class="support-detail-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              </svg>
+              <span>dispatch@autorik-transit.com</span>
+            </div>
+            <div class="support-hours-badge">Active 24 Hours / 7 Days</div>
+          </div>
+
+          <div class="support-channel-card">
+            <div class="support-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>
+            </div>
+            <h3 class="support-title">Corporate Commute Desk</h3>
+            <p class="support-sub">Dedicated contracts for IT parks, office shifts, and employee passes.</p>
+            <div class="support-detail-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span>+91 44 2855 9000</span>
+            </div>
+            <div class="support-detail-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              </svg>
+              <span>corporate@autorik-transit.com</span>
+            </div>
+            <div class="support-hours-badge">Mon - Sat: 8:30 AM - 7:30 PM</div>
+          </div>
+
+          <div class="support-channel-card">
+            <div class="support-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </div>
+            <h3 class="support-title">Lost Property & Grievance</h3>
+            <p class="support-sub">Track bags or phones accidentally left behind in vehicles.</p>
+            <div class="support-detail-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span>+91 44 2855 9002</span>
+            </div>
+            <div class="support-detail-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              </svg>
+              <span>helpdesk@autorik-transit.com</span>
+            </div>
+            <div class="support-hours-badge">Priority Instant Review</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         CONTACT - SECTION 4: GOOGLE LIVE MAP & STAND HUBS
+         ======================================================================= -->
+    <section class="section section-light" id="map" aria-labelledby="mapHeading">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">City Transit Network</div>
+          <h2 class="section-title" id="mapHeading">Central Dispatch & Stand Network Map</h2>
+          <p class="section-desc">
+            Visit our physical customer service kiosks and certified auto stands across major transit terminals.
+          </p>
+        </div>
+
+        <!-- Google Live Map Frame -->
+        <div class="map-wrap-box">
+          <iframe class="map-iframe" title="AutoRik Central Transport Hub Location Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124376.54921980072!2d80.1472856402434!3d13.067439169600984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <div class="map-stands-row">
+          <div class="map-stand-card">
+            <div>
+              <div class="stand-card-title">Central Metro Station Hub</div>
+              <div class="stand-card-desc">Ground Level Stand Booth, Gate 2 &bull; 24-Hour Supervisor on duty</div>
+            </div>
+          </div>
+
+          <div class="map-stand-card">
+            <div>
+              <div class="stand-card-title">Airport Terminal Booth</div>
+              <div class="stand-card-desc">Arrival Concourse Column 14 &bull; Priority prepaid meter lane</div>
+            </div>
+          </div>
+
+          <div class="map-stand-card">
+            <div>
+              <div class="stand-card-title">OMR Tech Park Feeder Hub</div>
+              <div class="stand-card-desc">Tidel Park Main Entrance &bull; EV Rickshaw Charging Hub</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         CONTACT - SECTION 5: CONTACT CTA SECTION (Mandatory CTA)
+         ======================================================================= -->
+    <section class="section section-dark" aria-labelledby="contactCtaHeading">
+      <div class="container">
+        <div class="contact-cta-card">
+          <div class="contact-cta-grid">
+            <div>
+              <div class="eyebrow"
+                style="background-color:rgba(255, 196, 0, 0.2); color:var(--primary-yellow); border-color:rgba(255, 196, 0, 0.4);">
+                Always at Your Service
+              </div>
+              <h2 class="contact-cta-title" id="contactCtaHeading">
+                Need Immediate Dispatch or <span>Fleet Assistance?</span>
+              </h2>
+              <p class="contact-cta-desc">
+                Speak directly with our on-duty central dispatch operator right now, or book an instant auto rickshaw
+                pickup across the city in seconds.
+              </p>
+              <div style="display:flex; gap:14px; flex-wrap:wrap;">
+                <button type="button" class="btn btn-primary btn-login">
+                  Book Instant Auto
+                </button>
+                <a href="tel:18004257455" class="btn btn-outline-yellow">
+                  Dial 1800-425-7455
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <div class="contact-cta-frame">
+                <img src="assets/images/services/p40.jpg" alt="Friendly and professional customer support dispatcher"
+                  width="320" height="280" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="brand-link">
+            <div class="brand-icon-box">
+              <img src="assets/images/icons/logo.svg" alt="AutoRik Brand Logo" width="40" height="40">
+            </div>
+            <div class="brand-text-wrap">
+              <div class="brand-title">Auto<span>Rik</span></div>
+              <div class="brand-subtitle">City Ride Network</div>
+            </div>
+          </a>
+          <p class="footer-brand-desc">
+            The city's trusted auto rickshaw and point-to-point local transit service with transparent metered fares,
+            GPS safety tracking, and verified drivers.
+          </p>
+          <div class="footer-emergency-badge">
+            <div class="badge-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+            </div>
+            <div class="badge-text">24/7 Helpline: 1800-425-7455</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home 1 (Transit)</a></li>
+            <li><a href="home-2.html">Home 2 (Express)</a></li>
+            <li><a href="about.html">About AutoRik</a></li>
+            <li><a href="how-to-book.html">How to Book</a></li>
+            <li><a href="fare-calculator.html">Fare Calculator</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Services & Safety</div>
+          <ul class="footer-links">
+            <li><a href="safety.html">Driver Background Checks</a></li>
+            <li><a href="safety.html#sos">SOS & Live Trip Sharing</a></li>
+            <li><a href="how-to-book.html#corporate">Corporate Commute Pass</a></li>
+            <li><a href="contact.html#driver">Driver Partner Onboarding</a></li>
+            <li><a href="contact.html">Support & Lost Property</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">City Operations</div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Central Transport Terminal, Anna Salai, Metro Hub</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>dispatch@autorik-transit.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-copy">
+          <div>&copy; 2026 AutoRik Transit Systems. All rights reserved. Built with #FFC400 &amp; #111111 identity.</div>
+          <div class="footer-live-status">
+            <span class="status-pulse-dot"></span>
+            <span>24/7 Police-Verified Dispatch &bull; Live Telemetry Active</span>
+          </div>
+        </div>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Carriage</a>
+          <a href="#">Meter Fare Regulations</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button type="button" class="scroll-to-top" id="scrollTopBtn" aria-label="Scroll to top of page">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5" />
+      <polyline points="5 12 12 5 19 12" />
+    </svg>
+  </button>
+
+  <script src="assets/js/main.js?v=2.8"></script>
+</body>
+
+</html>

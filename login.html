@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Login & Driver Partner Sign In — AutoRik</title>
+  <meta name="description"
+    content="Sign in to your AutoRik commuter account or access the certified driver partner portal.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css?v=3.4">
+  <link rel="stylesheet" href="assets/css/responsive.css?v=3.4">
+</head>
+
+<body class="auth-page-body">
+
+  <!-- Site Loader -->
+  <div class="site-loader" id="siteLoader" aria-label="Loading page">
+    <div class="loader-logo-ring">
+      <div class="loader-spin-ring"></div>
+      <img src="assets/images/icons/logo.svg" alt="AutoRik Logo" class="loader-logo-img" width="56" height="56">
+    </div>
+    <div class="loader-text-group">
+      <span class="loader-brand-title">AUTORIK</span>
+      <span class="loader-status">Securing connection..\</span>
+    </div>
+    <div class="loader-progress-track">
+      <div class="loader-progress-bar"></div>
+    </div>
+  </div>
+
+  <!-- Login Page Main Body (Dedicated Standalone Auth View, Perfectly Even Alignment) -->
+  <main class="login-page-section">
+    <div class="container">
+      <div class="login-layout-grid">
+        <!-- Visual Showcase Column -->
+        <div class="login-visual-frame">
+          <img src="assets/images/sections/p41.jpg" alt="Vibrant auto rickshaw urban transit visual" width="500"
+            height="540" loading="eager">
+          <div class="login-visual-overlay">
+            <div class="login-visual-badge">Verified City Mobility</div>
+            <p class="login-visual-quote">
+              "Over 3,200 verified drivers and 12,500 daily commuters connected through fair digital metered fares."
+            </p>
+            <div class="login-visual-author">&mdash; AutoRik Central Operations Network</div>
+          </div>
+        </div>
+
+        <!-- Form Card Column -->
+        <div class="login-form-card">
+          <!-- Card Top Bar: Brand Logo & Title (Left) + RTL & Theme Controls (Right) -->
+          <div class="login-card-top-bar">
+            <a href="index.html" class="brand-link" aria-label="AutoRik Home">
+              <div class="brand-icon-box" aria-hidden="true">
+                <img src="assets/images/icons/logo.svg" alt="AutoRik Brand Logo" width="38" height="38">
+              </div>
+              <div class="brand-text-wrap">
+                <div class="brand-title">Auto<span>Rik</span></div>
+                <div class="brand-subtitle">City Ride Network</div>
+              </div>
+            </a>
+
+            <div class="header-action-controls" role="group" aria-label="Display and text direction preferences">
+              <button type="button" class="ctrl-btn rtl-toggle-btn" aria-label="Toggle RTL text direction"
+                title="Toggle RTL / LTR layout">
+                <span class="ctrl-btn-text">LTR</span>
+                <span class="ctrl-icon-dot"></span>
+              </button>
+              <div class="ctrl-divider" aria-hidden="true"></div>
+              <button type="button" class="ctrl-btn theme-toggle-btn" aria-label="Toggle dark mode"
+                title="Toggle Dark / Light theme">
+                <span class="theme-icon-wrap" aria-hidden="true">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div class="login-card-header">
+            <h1 class="login-card-title">Welcome to Auto<span>Rik</span> City Ride Network</h1>
+            <p class="login-card-desc">Sign in with your verified mobile number or register as a driver partner</p>
+          </div>
+
+          <!-- Tab Switcher -->
+          <div class="login-tabs-wrap" role="tablist">
+            <button type="button" class="login-tab-btn active" id="btnTabPassenger" role="tab" aria-selected="true">
+              Passenger Login
+            </button>
+            <button type="button" class="login-tab-btn" id="btnTabDriver" role="tab" aria-selected="false">
+              Driver Partner
+            </button>
+          </div>
+
+          <!-- Passenger Login Form -->
+          <form class="login-form" id="formPassengerAuth"
+            onsubmit="event.preventDefault(); alert('Passenger login successful! Redirecting to transit dashboard...'); window.location.href='index.html';">
+            <div class="form-group">
+              <label class="form-label" for="passMobile">Registered Mobile Number</label>
+              <input type="tel" id="passMobile" class="form-input" placeholder="+91 98765 43210" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="passPass">Password or 4-Digit OTP</label>
+              <input type="password" id="passPass" class="form-input" placeholder="••••••••" required>
+            </div>
+
+            <div class="auth-checkbox-row">
+              <label class="auth-checkbox-label">
+                <input type="checkbox" checked>
+                <span>Remember this device</span>
+              </label>
+              <a href="#" class="auth-forgot-link">Get OTP via SMS</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 6px;">
+              Sign In to Ride
+            </button>
+
+            <p class="login-terms-note">
+              By signing in, you agree to official city meter regulations and safety telemetry tracking.
+            </p>
+          </form>
+
+          <!-- Driver Partner Form -->
+          <form class="login-form hidden" id="formDriverAuth"
+            onsubmit="event.preventDefault(); alert('Driver portal authentication successful! Redirecting to driver dispatch console...'); window.location.href='index.html';">
+            <div class="form-group">
+              <label class="form-label" for="drvMobile">Driver Registered Mobile</label>
+              <input type="tel" id="drvMobile" class="form-input" placeholder="+91 98765 43210" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="drvPlate">Auto Registration Plate</label>
+              <input type="text" id="drvPlate" class="form-input" placeholder="TN 01 AB 1234" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="drvPin">Security PIN / OTP</label>
+              <input type="password" id="drvPin" class="form-input" placeholder="••••" required>
+            </div>
+
+            <div class="auth-checkbox-row">
+              <label class="auth-checkbox-label">
+                <input type="checkbox" checked>
+                <span>Auto-connect GPS stand</span>
+              </label>
+              <a href="contact.html#driver" class="auth-forgot-link">New Driver? Register</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 6px;">
+              Sign In to Driver Console
+            </button>
+
+            <p class="login-terms-note">
+              Certified driver partner portal. Protected with 24/7 central dispatch verification.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/js/main.js?v=3.3"></script>
+</body>
+
+</html>

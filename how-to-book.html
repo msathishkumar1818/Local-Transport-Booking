@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Book — AutoRik App, Phone Helpline & Metro Stands</title>
+  <meta name="description"
+    content="Discover flexible ways to book your local auto rickshaw: instant mobile app dispatch, 24/7 phone booking hotline, or designated metro station stands.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/images/icons/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css?v=3.4">
+  <link rel="stylesheet" href="assets/css/responsive.css?v=3.4">
+</head>
+
+<body>
+
+  <!-- Branded Site Loader -->
+  <div class="site-loader" id="siteLoader" aria-label="Loading page">
+    <div class="loader-content">
+      <div class="loader-logo-ring">
+        <img src="assets/images/icons/logo.svg" alt="AutoRik" width="54" height="54" class="loader-logo-img">
+        <div class="loader-spin-ring"></div>
+      </div>
+      <div class="loader-title">Auto<span>Rik</span></div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar-fill"></div>
+      </div>
+      <div class="loader-status">Connecting City Fleet...</div>
+    </div>
+  </div>
+
+  <!-- Fixed Header (Single-Line Compact Header) -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="AutoRik Home">
+        <div class="brand-icon-box" aria-hidden="true">
+          <img src="assets/images/icons/logo.svg" alt="AutoRik Brand Logo" width="40" height="40">
+        </div>
+        <div class="brand-text-wrap">
+          <div class="brand-title">Auto<span>Rik</span></div>
+          <div class="brand-subtitle">City Ride Network</div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation (Exactly 6 Primary Items) -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <button type="button" class="nav-link dropdown-toggle" id="homeDropdownToggle" aria-expanded="false"
+              aria-haspopup="true">
+              Home
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <ul class="dropdown-menu" id="homeDropdownMenu" role="menu">
+              <li class="dropdown-item" role="none"><a href="index.html" role="menuitem">Home 1 (Transit Hub)</a></li>
+              <li class="dropdown-item" role="none"><a href="home-2.html" role="menuitem">Home 2 (Metro Express)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="how-to-book.html" class="nav-link active">How to Book</a></li>
+          <li class="nav-item"><a href="fare-calculator.html" class="nav-link">Fare Calculator</a></li>
+          <li class="nav-item"><a href="safety.html" class="nav-link">Safety Features</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Utilities & Login Button -->
+      <div class="header-actions">
+        <div class="header-action-controls">
+          <button type="button" class="ctrl-btn rtl-toggle-btn" aria-label="Toggle RTL text direction">
+            <span class="ctrl-icon-dot"></span>
+            <span class="rtl-text-label">RTL</span>
+          </button>
+          <div class="ctrl-divider" aria-hidden="true"></div>
+          <button type="button" class="ctrl-btn theme-toggle-btn" aria-label="Toggle dark mode">
+            <span class="theme-icon-wrap" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </span>
+          </button>
+        </div>
+        <a href="login.html" class="btn-login" aria-label="Go to Account Login">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+            <polyline points="10 17 15 12 10 7" />
+            <line x1="15" y1="12" x2="3" y2="12" />
+          </svg>
+          <span>Login</span>
+        </a>
+        <button type="button" class="mobile-toggle-btn" id="mobileToggleBtn" aria-label="Open mobile navigation menu"
+          aria-expanded="false">
+          <span class="hamburger-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round">
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </span>
+          <span class="close-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer-overlay" id="mobileDrawerOverlay" role="dialog" aria-modal="true"
+    aria-label="Mobile Navigation">
+    <div class="mobile-drawer">
+      <div class="mobile-drawer-header">
+        <div class="mobile-brand">
+          <div class="brand-icon-box">
+            <img src="assets/images/icons/logo.svg" alt="AutoRik Brand Logo" width="36" height="36">
+          </div>
+          <div class="brand-text-wrap">
+            <div class="brand-title">Auto<span>Rik</span></div>
+            <div class="brand-subtitle">City Ride Network</div>
+          </div>
+        </div>
+        <button type="button" class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close mobile menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <ul class="mobile-nav-list">
+        <li>
+          <button type="button" class="mobile-nav-link mobile-accordion-toggle" id="mobileHomeAccordion"
+            aria-expanded="false">
+            <span>Home</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <ul class="mobile-accordion-menu" id="mobileHomeSubmenu">
+            <li><a href="index.html">Home 1 (Transit Hub)</a></li>
+            <li><a href="home-2.html">Home 2 (Metro Express)</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html" class="mobile-nav-link">About</a></li>
+        <li><a href="how-to-book.html" class="mobile-nav-link active">How to Book</a></li>
+        <li><a href="fare-calculator.html" class="mobile-nav-link">Fare Calculator</a></li>
+        <li><a href="safety.html" class="mobile-nav-link">Safety Features</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+      </ul>
+
+      <div class="mobile-drawer-footer">
+        <a href="login.html" class="btn btn-primary btn-login" style="width:100%; justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+            <polyline points="10 17 15 12 10 7" />
+            <line x1="15" y1="12" x2="3" y2="12" />
+          </svg>
+          <span>Account Login</span>
+        </a>
+        <div class="mobile-control-row">
+          <div class="header-action-controls" style="width: 100%; justify-content: space-around;">
+            <button type="button" class="ctrl-btn rtl-toggle-btn" aria-label="Toggle RTL text direction">
+              <span class="ctrl-icon-dot"></span>
+              <span class="rtl-text-label">RTL</span>
+            </button>
+            <div class="ctrl-divider" aria-hidden="true"></div>
+            <button type="button" class="ctrl-btn theme-toggle-btn" aria-label="Toggle dark mode">
+              <span class="theme-icon-wrap" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- =======================================================================
+         HOW TO BOOK - SECTION 1: HERO CHANNELS (Phone, App, Stand Overview)
+         ======================================================================= -->
+    <section class="book-hero-wrap" aria-labelledby="bookHeroHeading">
+      <div class="container">
+        <div class="book-hero-grid">
+          <div>
+            <div class="eyebrow">Universal Access</div>
+            <h1 class="book-hero-title" id="bookHeroHeading">
+              Three Seamless Channels to <span>Hail Your Ride</span>
+            </h1>
+            <p class="book-hero-desc">
+              Whether you prefer rapid smartphone booking, a direct phone call to our central dispatch room, or walking
+              up to a branded metro stand, AutoRik ensures you are never stranded.
+            </p>
+            <div class="book-hotline-strip">
+              <div class="book-hotline-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </div>
+              <div class="book-hotline-text">
+                <div class="lbl">24/7 Voice Dispatch Helpline</div>
+                <div class="phone">1800-425-7455</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="book-hero-frame">
+            <img src="assets/images/services/p21.jpg"
+              alt="Commuter interacting with intuitive digital transport booking screen" width="560" height="440"
+              loading="eager">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         HOW TO BOOK - SECTION 2: 3 BOOKING CHANNELS (Even Uniform Cards)
+         ======================================================================= -->
+    <section class="section section-light" aria-labelledby="channelsHeading">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Choose Your Mode</div>
+          <h2 class="section-title" id="channelsHeading">Available Booking Methods</h2>
+          <p class="section-desc">
+            Pick the booking style that fits your current location, connectivity, and travel preference.
+          </p>
+        </div>
+
+        <div class="channels-grid">
+          <!-- Channel 1: Mobile App -->
+          <div class="channel-card">
+            <div class="channel-img-wrap">
+              <img src="assets/images/services/p22.jpg" alt="User tapping mobile ride dispatch application" width="400"
+                height="220" loading="lazy">
+              <span class="channel-badge">Fastest</span>
+            </div>
+            <div class="channel-body">
+              <h3 class="channel-title">Mobile App & Web Booking</h3>
+              <p class="channel-desc">Request doorstep pickup with GPS auto-detection, live meter estimation,
+                automated driver matching.</p>
+              <ul class="channel-steps-list">
+                <li class="channel-step-row">
+                  <span class="channel-step-dot"></span>
+                  <span>1. Set pickup & drop locations</span>
+                </li>
+                <li class="channel-step-row">
+                  <span class="channel-step-dot"></span>
+                  <span>2. View calibrated meter fare range</span>
+                </li>
+                <li class="channel-step-row">
+                  <span class="channel-step-dot"></span>
+                  <span>3. Auto arrives in under 3 minutes</span>
+                </li>
+              </ul>
+              <button type="button" class="btn btn-primary btn-login">Open App Booking</button>
+            </div>
+          </div>
+
+          <!-- Channel 2: Phone Helpline -->
+          <div class="channel-card">
+            <div class="channel-img-wrap">
+              <img src="assets/images/services/p23.jpg"
+                alt="Friendly voice customer support specialist handling booking dispatch" width="400" height="220"
+                loading="lazy">
+              <span class="channel-badge">24/7 Helpline</span>
+            </div>
+            <div class="channel-body">
+              <h3 class="channel-title">Phone Call Dispatch Desk</h3>
+              <p class="channel-desc">Dial our toll-free hotline for instant dispatch without internet or smartphone
+                apps required.</p>
+              <ul class="channel-steps-list">
+                <li class="channel-step-row">
+                  <span class="channel-step-dot"></span>
+                  <span>1. Call 1800-425-7455 toll-free</span>
+                </li>
+                <li class="channel-step-row">
+                  <span class="channel-step-dot"></span>
+                  <span>2. State your landmark address</span>
+                </li>
+                <li class="channel-step-row">
+                  <span class="channel-step-dot"></span>
+                  <span>3.Receive driver SMS vehicle details</span>
+                </li>
+              </ul>
+              <a href="tel:18004257455" class="btn btn-secondary">Dial Dispatch Hotline</a>
+            </div>
+          </div>
+
+          <!-- Channel 3: Physical Stands -->
+          <div class="channel-card">
+            <div class="channel-img-wrap">
+              <img src="assets/images/services/p24.jpg"
+                alt="Designated public transport stand outside central metro station" width="400" height="220"
+                loading="lazy">
+              <span class="channel-badge">Zero Wait</span>
+            </div>
+            <div class="channel-body">
+              <h3 class="channel-title">Metro & Station Stand </h3>
+              <p class="channel-desc">Step into any of our 48 organized station stands with uniformed marshals and
+                upfront meter billing.</p>
+              <ul class="channel-steps-list">
+                <li class="channel-step-row">
+                  <span class="channel-step-dot"></span>
+                  <span>1. Walk up to yellow AutoRik booth</span>
+                </li>
+                <li class="channel-step-row">
+                  <span class="channel-step-dot"></span>
+                  <span>2. Marshal assigns next queue driver</span>
+                </li>
+                <li class="channel-step-row">
+                  <span class="channel-step-dot"></span>
+                  <span>3. Board immediately without booking</span>
+                </li>
+              </ul>
+              <a href="index.html#coverage" class="btn btn-primary">Find Nearby Stand</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         HOW TO BOOK - SECTION 3: ADVANCE AIRPORT & STATION PRIORITY (Featured Card)
+         ======================================================================= -->
+    <section class="section section-light" aria-labelledby="advanceHeading">
+      <div class="container">
+        <div class="advance-card-container">
+          <div class="advance-booking-card">
+            <div class="advance-card-media">
+              <img src="assets/images/services/advance-airport-card.jpg"
+                alt="Advance airport priority auto rickshaw waiting at airport departure terminal" width="640"
+                height="480" loading="lazy">
+            </div>
+            <div class="advance-card-content">
+              <div class="advance-card-eyebrow">SCHEDULED TRANSIT &bull; 24/7 PRIORITY</div>
+              <h2 class="advance-card-title" id="advanceHeading">Advance Airport &amp; Early Morning Booking</h2>
+              <p class="advance-card-desc">
+                Catch early morning train departures or red-eye flights with complete peace of mind. Reserve your auto
+                rickshaw up to 48 hours in advance with guaranteed driver assignment and zero surge tariffs.
+              </p>
+              <div class="advance-card-meta">
+                <span class="advance-meta-highlight">₹0 Cancellation Fee</span>
+                <span class="advance-meta-sep">&bull;</span>
+                <span class="advance-meta-item">4:00 AM Guaranteed Dispatch</span>
+                <span class="advance-meta-sep">&bull;</span>
+                <span class="advance-meta-item">Live Flight &amp; Train Sync</span>
+              </div>
+              <div class="advance-card-action">
+                <a href="login.html" class="advance-enquiry-btn">Reserve Advance Ride</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         HOW TO BOOK - SECTION 4: TRANSPARENT PAYMENT METHODS (4 Even Cards)
+         ======================================================================= -->
+    <section class="section section-light" aria-labelledby="paymentsHeading">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Payment Flexibility</div>
+          <h2 class="section-title" id="paymentsHeading">Transparent Settlement Options</h2>
+          <p class="section-desc">
+            Pay strictly what the digital meter reflects using whichever payment method is most convenient for you.
+          </p>
+        </div>
+
+        <div class="payments-grid">
+          <div class="payment-card">
+            <div class="payment-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+              </svg>
+            </div>
+            <h3 class="payment-title">Instant UPI QR</h3>
+            <p class="payment-desc">Scan the in-cabin driver QR code with any UPI app (GPay, PhonePe, Paytm) directly to
+              the verified driver account.</p>
+          </div>
+
+          <div class="payment-card">
+            <div class="payment-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <rect x="2" y="6" width="20" height="12" rx="2" />
+                <circle cx="12" cy="12" r="2" />
+                <path d="M6 12h.01M18 12h.01" />
+              </svg>
+            </div>
+            <h3 class="payment-title">Exact Meter Cash</h3>
+            <p class="payment-desc">Traditional cash settlement at trip conclusion with drivers equipped with small
+              denomination change.</p>
+          </div>
+
+          <div class="payment-card">
+            <div class="payment-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                <line x1="1" y1="10" x2="23" y2="10" />
+              </svg>
+            </div>
+            <h3 class="payment-title">Corporate Pass</h3>
+            <p class="payment-desc">Monthly corporate invoice settlement where employees commute using digital employee
+              ID codes.</p>
+          </div>
+
+          <div class="payment-card">
+            <div class="payment-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg>
+            </div>
+            <h3 class="payment-title">Govt. Tariff Guarantee</h3>
+            <p class="payment-desc">Every trip adheres to official municipal transport meter minimums and kilometer
+              increments.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         HOW TO BOOK - SECTION 5: INSTANT DISPATCH CTA (Mandatory CTA Section)
+         ======================================================================= -->
+    <section class="section section-dark" aria-labelledby="bookCtaHeading">
+      <div class="container">
+        <div class="book-cta-card">
+          <div class="book-cta-grid">
+            <div>
+              <div class="eyebrow"
+                style="background-color:rgba(255, 196, 0, 0.2); color:var(--primary-yellow); border-color:rgba(255, 196, 0, 0.4);">
+                Ready to Travel?
+              </div>
+              <h2 class="book-cta-title" id="bookCtaHeading">
+                Call Our <span>24/7 Helpline</span> or Book Online Now
+              </h2>
+              <p class="book-cta-desc">
+                Need an immediate ride right now? Tap below to open instant web booking or speak directly with an
+                on-duty city dispatch operator.
+              </p>
+              <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                <button type="button" class="btn btn-primary btn-login">
+                  Book Instant Auto
+                </button>
+                <a href="tel:18004257455" class="btn btn-outline-yellow">
+                  Call 1800-425-7455
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <div class="book-cta-frame">
+                <img src="assets/images/services/p25.jpg"
+                  alt="Helpful customer support agent coordinating transit dispatch" width="320" height="280"
+                  loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="brand-link">
+            <div class="brand-icon-box">
+              <img src="assets/images/icons/logo.svg" alt="AutoRik Brand Logo" width="40" height="40">
+            </div>
+            <div class="brand-text-wrap">
+              <div class="brand-title">Auto<span>Rik</span></div>
+              <div class="brand-subtitle">City Ride Network</div>
+            </div>
+          </a>
+          <p class="footer-brand-desc">
+            The city's trusted auto rickshaw and point-to-point local transit service with transparent metered fares,
+            GPS safety tracking, and verified drivers.
+          </p>
+          <div class="footer-emergency-badge">
+            <div class="badge-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+            </div>
+            <div class="badge-text">24/7 Helpline: 1800-425-7455</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home 1 (Transit)</a></li>
+            <li><a href="home-2.html">Home 2 (Express)</a></li>
+            <li><a href="about.html">About AutoRik</a></li>
+            <li><a href="how-to-book.html">How to Book</a></li>
+            <li><a href="fare-calculator.html">Fare Calculator</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Services & Safety</div>
+          <ul class="footer-links">
+            <li><a href="safety.html">Driver Background Checks</a></li>
+            <li><a href="safety.html#sos">SOS & Live Trip Sharing</a></li>
+            <li><a href="how-to-book.html#corporate">Corporate Commute Pass</a></li>
+            <li><a href="contact.html#driver">Driver Partner Onboarding</a></li>
+            <li><a href="contact.html">Support & Lost Property</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">City Operations</div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Central Transport Terminal, Anna Salai, Metro Hub</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>dispatch@autorik-transit.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-copy">
+          <div>&copy; 2026 AutoRik Transit Systems. All rights reserved. Built with #FFC400 &amp; #111111 identity.</div>
+          <div class="footer-live-status">
+            <span class="status-pulse-dot"></span>
+            <span>24/7 Police-Verified Dispatch &bull; Live Telemetry Active</span>
+          </div>
+        </div>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Carriage</a>
+          <a href="#">Meter Fare Regulations</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button type="button" class="scroll-to-top" id="scrollTopBtn" aria-label="Scroll to top of page">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5" />
+      <polyline points="5 12 12 5 19 12" />
+    </svg>
+  </button>
+
+  <script src="assets/js/main.js?v=2.8"></script>
+</body>
+
+</html>

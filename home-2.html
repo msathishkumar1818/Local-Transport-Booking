@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoRik Express — Metro Corridors & Point-to-Point Local Transit</title>
+  <meta name="description"
+    content="Rapid urban auto rickshaw connections across metro hubs, tech parks, and commercial zones with fixed transparent tariffs.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/images/icons/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css?v=3.4">
+  <link rel="stylesheet" href="assets/css/responsive.css?v=3.4">
+</head>
+
+<body>
+
+  <!-- Branded Site Loader -->
+  <div class="site-loader" id="siteLoader" aria-label="Loading page">
+    <div class="loader-content">
+      <div class="loader-logo-ring">
+        <img src="assets/images/icons/logo.svg" alt="AutoRik" width="54" height="54" class="loader-logo-img">
+        <div class="loader-spin-ring"></div>
+      </div>
+      <div class="loader-title">Auto<span>Rik</span></div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar-fill"></div>
+      </div>
+      <div class="loader-status">Connecting City Fleet...</div>
+    </div>
+  </div>
+
+  <!-- Fixed Header (Single-Line Compact Header) -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="AutoRik Home">
+        <div class="brand-icon-box" aria-hidden="true">
+          <img src="assets/images/icons/logo.svg" alt="AutoRik Brand Logo" width="40" height="40">
+        </div>
+        <div class="brand-text-wrap">
+          <div class="brand-title">Auto<span>Rik</span></div>
+          <div class="brand-subtitle">City Ride Network</div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation (Exactly 6 Primary Items) -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <button type="button" class="nav-link dropdown-toggle active" id="homeDropdownToggle" aria-expanded="false"
+              aria-haspopup="true">
+              Home
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <ul class="dropdown-menu" id="homeDropdownMenu" role="menu">
+              <li class="dropdown-item" role="none"><a href="index.html" role="menuitem">Home 1 (Transit Hub)</a></li>
+              <li class="dropdown-item" role="none"><a href="home-2.html" class="active" role="menuitem">Home 2 (Metro Express)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="how-to-book.html" class="nav-link">How to Book</a></li>
+          <li class="nav-item"><a href="fare-calculator.html" class="nav-link">Fare Calculator</a></li>
+          <li class="nav-item"><a href="safety.html" class="nav-link">Safety Features</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Utilities & Login Button -->
+      <div class="header-actions">
+        <div class="header-action-controls">
+          <button type="button" class="ctrl-btn rtl-toggle-btn" aria-label="Toggle RTL text direction">
+            <span class="ctrl-icon-dot"></span>
+            <span class="rtl-text-label">RTL</span>
+          </button>
+          <div class="ctrl-divider" aria-hidden="true"></div>
+          <button type="button" class="ctrl-btn theme-toggle-btn" aria-label="Toggle dark mode">
+            <span class="theme-icon-wrap" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </span>
+          </button>
+        </div>
+        <a href="login.html" class="btn-login" aria-label="Go to Account Login">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+            <polyline points="10 17 15 12 10 7" />
+            <line x1="15" y1="12" x2="3" y2="12" />
+          </svg>
+          <span>Login</span>
+        </a>
+        <button type="button" class="mobile-toggle-btn" id="mobileToggleBtn" aria-label="Open mobile navigation menu"
+          aria-expanded="false">
+          <span class="hamburger-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round">
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </span>
+          <span class="close-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer-overlay" id="mobileDrawerOverlay" role="dialog" aria-modal="true"
+    aria-label="Mobile Navigation">
+    <div class="mobile-drawer">
+      <div class="mobile-drawer-header">
+        <div class="mobile-brand">
+          <div class="brand-icon-box">
+            <img src="assets/images/icons/logo.svg" alt="AutoRik Brand Logo" width="36" height="36">
+          </div>
+          <div>
+            <div class="brand-title">Auto<span>Rik</span></div>
+            <div class="brand-subtitle">City Ride Network</div>
+          </div>
+        </div>
+        <button type="button" class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close mobile menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <ul class="mobile-nav-list">
+        <li>
+          <button type="button" class="mobile-nav-link mobile-accordion-toggle active" id="mobileHomeAccordion"
+            aria-expanded="false">
+            <span>Home</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <ul class="mobile-accordion-menu" id="mobileHomeSubmenu">
+            <li><a href="index.html">Home 1 (Transit Hub)</a></li>
+            <li><a href="home-2.html" class="active">Home 2 (Metro Express)</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html" class="mobile-nav-link">About</a></li>
+        <li><a href="how-to-book.html" class="mobile-nav-link">How to Book</a></li>
+        <li><a href="fare-calculator.html" class="mobile-nav-link">Fare Calculator</a></li>
+        <li><a href="safety.html" class="mobile-nav-link">Safety Features</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+      </ul>
+
+      <div class="mobile-drawer-footer">
+        <a href="login.html" class="btn btn-primary btn-login" style="width:100%; justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+            <polyline points="10 17 15 12 10 7" />
+            <line x1="15" y1="12" x2="3" y2="12" />
+          </svg>
+          <span>Account Login</span>
+        </a>
+        <div class="mobile-control-row">
+          <div class="header-action-controls" style="width: 100%; justify-content: space-around;">
+            <button type="button" class="ctrl-btn rtl-toggle-btn" aria-label="Toggle RTL text direction">
+              <span class="ctrl-icon-dot"></span>
+              <span class="rtl-text-label">RTL</span>
+            </button>
+            <div class="ctrl-divider" aria-hidden="true"></div>
+            <button type="button" class="ctrl-btn theme-toggle-btn" aria-label="Toggle dark mode">
+              <span class="theme-icon-wrap" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- =======================================================================
+         HOME 2 - SECTION 1: HERO METRO EXPRESS (Cinematic Full-Width Visual)
+         ======================================================================= -->
+    <section class="hero-express-wrap" aria-labelledby="expressHeroTitle">
+      <img src="assets/images/hero/p9.jpg"
+        alt="Vibrant cityscape at sunset highlighting active public transport arteries" class="hero-express-bg"
+        width="1400" height="800" loading="eager">
+      <div class="hero-express-overlay"></div>
+      <div class="container hero-express-content">
+        <div class="express-tag-pill">Metro Corridors & Priority Stands</div>
+        <h1 class="hero-express-title" id="expressHeroTitle">
+          Express Transit for the <span>Moving City</span>
+        </h1>
+        <p class="hero-express-desc">
+          Skip traffic choke-points with designated auto rickshaw lanes, synchronized metro feeder schedules, and
+          upfront fixed zone pricing.
+        </p>
+        <div class="express-pills-row">
+          <div class="express-pill-stat">
+            <span class="num">48</span>
+            <span class="lbl">Metro Station Stands</span>
+          </div>
+          <div class="express-pill-stat">
+            <span class="num">100%</span>
+            <span class="lbl">Meter Calibration</span>
+          </div>
+          <div class="express-pill-stat">
+            <span class="num">&lt; 2 min</span>
+            <span class="lbl">Stand Pickup Wait</span>
+          </div>
+          <button type="button" class="btn btn-primary btn-login">
+            Instant Express Ride
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         HOME 2 - SECTION 2: 3-STEP INSTANT BOARDING (Even Photo Steps)
+         ======================================================================= -->
+    <section class="section section-light" aria-labelledby="stepsHeading">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Zero Hassle Experience</div>
+          <h2 class="section-title" id="stepsHeading">How Express Boarding Works</h2>
+          <p class="section-desc">
+            Board in three effortless steps without price bargaining or route confusion.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-img-box">
+              <img src="assets/images/sections/p10.jpg" alt="Commuter walking up to an organized local transport stand"
+                width="400" height="200" loading="lazy">
+              <div class="step-num-badge">01</div>
+            </div>
+            <div class="step-body">
+              <h3 class="step-heading">Spot Stand or Tap App</h3>
+              <p class="step-desc">Locate our branded yellow stand at any metro exit or request instant curbside
+                dispatch via mobile.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div class="step-img-box">
+              <img src="assets/images/sections/p11.jpg"
+                alt="Smart device scanning verification badge on transport dashboard" width="400" height="200"
+                loading="lazy">
+              <div class="step-num-badge">02</div>
+            </div>
+            <div class="step-body">
+              <h3 class="step-heading">Scan Driver QR Badge</h3>
+              <p class="step-desc">Quickly scan the verified driver badge to confirm identity, meter rate, and initiate
+                GPS emergency tracking.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div class="step-img-box">
+              <img src="assets/images/sections/p12.jpg"
+                alt="Passenger enjoying a smooth auto rickshaw ride along open avenue" width="400" height="200"
+                loading="lazy">
+              <div class="step-num-badge">03</div>
+            </div>
+            <div class="step-body">
+              <h3 class="step-heading">Metered Fare Settlement</h3>
+              <p class="step-desc">Reach your destination and pay the exact digital meter tariff via UPI QR, cash, or
+                corporate pass.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         HOME 2 - SECTION 3: ZONE CORRIDORS & FIXED FARES (Asymmetric Grid)
+         ======================================================================= -->
+    <section class="section section-dark" aria-labelledby="corridorsHeading">
+      <div class="container">
+        <div class="corridor-wrap-grid">
+          <div class="corridor-photo-frame">
+            <img src="assets/images/sections/p13.jpg"
+              alt="Major illuminated city arterial road with continuous traffic flow" width="540" height="480"
+              loading="lazy">
+          </div>
+          <div>
+            <div class="eyebrow">High-Frequency Routes</div>
+            <h2 class="section-title" id="corridorsHeading">Popular Express Transit Corridors</h2>
+            <p class="section-desc text-left" style="margin: 0 0 24px 0;">
+              Frequent high-volume transit routes featuring fixed, pre-calibrated zone pricing to ensure zero unexpected
+              costs.
+            </p>
+
+            <div class="corridors-list">
+              <div class="corridor-card">
+                <div class="corridor-info">
+                  <div class="corridor-route-name">
+                    <span class="corridor-origin">Central Metro Hub</span>
+                    <span class="corridor-arrow" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </span>
+                    <span class="corridor-dest">OMR Tech Corridor</span>
+                  </div>
+                  <div class="corridor-route-meta">12.4 km &bull; Approx. 22 mins &bull; Dedicated Bus/Auto Lane</div>
+                </div>
+                <div class="corridor-fare-box">
+                  <div class="corridor-fare-lbl">Fixed Corridor</div>
+                  <div class="corridor-fare-val">₹140</div>
+                </div>
+              </div>
+
+              <div class="corridor-card">
+                <div class="corridor-info">
+                  <div class="corridor-route-name">
+                    <span class="corridor-origin">Airport Terminal 1&nbsp;&amp;&nbsp;2</span>
+                    <span class="corridor-arrow" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </span>
+                    <span class="corridor-dest">City Railway Station</span>
+                  </div>
+                  <div class="corridor-route-meta">16.8 km &bull; Approx. 35 mins &bull; 24/7 Night Active</div>
+                </div>
+                <div class="corridor-fare-box">
+                  <div class="corridor-fare-lbl">Fixed Corridor</div>
+                  <div class="corridor-fare-val">₹210</div>
+                </div>
+              </div>
+
+              <div class="corridor-card">
+                <div class="corridor-info">
+                  <div class="corridor-route-name">
+                    <span class="corridor-origin">Anna Nagar Western Stand</span>
+                    <span class="corridor-arrow" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </span>
+                    <span class="corridor-dest">Marina Promenade</span>
+                  </div>
+                  <div class="corridor-route-meta">9.2 km &bull; Approx. 18 mins &bull; Coastal Express</div>
+                </div>
+                <div class="corridor-fare-box">
+                  <div class="corridor-fare-lbl">Fixed Corridor</div>
+                  <div class="corridor-fare-val">₹110</div>
+                </div>
+              </div>
+
+              <div class="corridor-card">
+                <div class="corridor-info">
+                  <div class="corridor-route-name">
+                    <span class="corridor-origin">Guindy Industrial Estate</span>
+                    <span class="corridor-arrow" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </span>
+                    <span class="corridor-dest">DLF IT Park Campus</span>
+                  </div>
+                  <div class="corridor-route-meta">6.5 km &bull; Approx. 14 mins &bull; Corporate Feeder</div>
+                </div>
+                <div class="corridor-fare-box">
+                  <div class="corridor-fare-lbl">Fixed Corridor</div>
+                  <div class="corridor-fare-val">₹80</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         HOME 2 - SECTION 4: 24/7 NIGHT TRANSIT & SAFETY SHIELD
+         ======================================================================= -->
+    <section class="section section-light" aria-labelledby="nightShieldHeading">
+      <div class="container">
+        <div class="night-shield-card">
+          <img src="assets/images/sections/p14.jpg" alt="Nighttime urban transit route with safe streetlights"
+            class="night-shield-bg" width="1200" height="400" loading="lazy">
+          <div class="night-shield-content">
+            <div>
+              <div class="eyebrow">Night Shield Protocol</div>
+              <h2 class="night-shield-title" id="nightShieldHeading">
+                Safe Night Travel Guaranteed with <span>Active GPS Patrol</span>
+              </h2>
+              <p class="night-shield-desc">
+                Traveling late from the station or an evening office shift? AutoRik Night Shield provides live telemetry
+                monitoring, female passenger safety escorts, and direct link to local police helplines.
+              </p>
+              <button type="button" class="btn btn-primary btn-login">
+                Activate Night Escort
+              </button>
+            </div>
+
+            <div class="night-badges-grid">
+              <div class="night-badge-item">
+                <div class="night-badge-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 14 14" />
+                  </svg>
+                </div>
+                <div class="night-badge-txt">24/7 Central Dispatch Room</div>
+              </div>
+
+              <div class="night-badge-item">
+                <div class="night-badge-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                </div>
+                <div class="night-badge-txt">1-Tap Live Trip Sharing</div>
+              </div>
+
+              <div class="night-badge-item">
+                <div class="night-badge-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="3" />
+                    <path
+                      d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                  </svg>
+                </div>
+                <div class="night-badge-txt">Pre-Set Night Tariff Shield</div>
+              </div>
+
+              <div class="night-badge-item">
+                <div class="night-badge-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </div>
+                <div class="night-badge-txt">Direct SOS Emergency Dial</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         HOME 2 - SECTION 5: DRIVER FLEET COMMUNITY & STANDARDS
+         ======================================================================= -->
+    <section class="section section-dark" aria-labelledby="communityHeading">
+      <div class="container">
+        <div class="community-grid">
+          <div>
+            <div class="eyebrow">Fleet Excellence</div>
+            <h2 class="section-title" id="communityHeading">Driver Partner Community & Standards</h2>
+            <p class="section-desc text-left" style="margin: 0 0 24px 0;">
+              Our network supports thousands of independent auto drivers through fair earning policies, zero commission
+              exploitation, and weekly vehicle maintenance audits.
+            </p>
+
+            <div class="community-check-list">
+              <div class="community-check-item">
+                <div class="community-check-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="community-check-title">Comprehensive Mechanical Checks</h3>
+                  <p class="community-check-desc">Regular brake inspections, emission testing, and tire health
+                    certifications before hitting the road.</p>
+                </div>
+              </div>
+
+              <div class="community-check-item">
+                <div class="community-check-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="community-check-title">Sanitized & Clean Cabin Guarantee</h3>
+                  <p class="community-check-desc">Clean passenger upholstery, weather-proof rain curtains, and
+                    transparent fare cards displayed prominently.</p>
+                </div>
+              </div>
+
+              <div class="community-check-item">
+                <div class="community-check-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="community-check-title">Ethical Driver Welfare Fund</h3>
+                  <p class="community-check-desc">Medical insurance, family education allowances, and accident coverage
+                    for our registered driver fraternity.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="community-photo-wrap">
+            <img src="assets/images/about/p15.jpg"
+              alt="Dedicated auto drivers and fleet operators meeting at community service terminal" width="560"
+              height="440" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         HOME 2 - SECTION 6: CORPORATE DAILY COMMUTE & GROUP PASS (Mandatory CTA)
+         ======================================================================= -->
+    <section class="section section-light" aria-labelledby="corpCtaHeading">
+      <div class="container">
+        <div class="corporate-cta-wrap">
+          <div class="corporate-cta-grid">
+            <div>
+              <div class="eyebrow"
+                style="background-color:rgba(255, 196, 0, 0.2); color:var(--primary-yellow); border-color:rgba(255, 196, 0, 0.4);">
+                Corporate & Daily Passes
+              </div>
+              <h2 class="corporate-cta-title" id="corpCtaHeading">
+                Simplify Office Commutes with <span>Monthly Pass Contracts</span>
+              </h2>
+              <p class="corporate-cta-desc">
+                Provide stress-free last-mile connectivity for your employees directly from metro stations to your
+                company premises with consolidated corporate billing.
+              </p>
+              <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                <a href="contact.html#corporate" class="btn btn-primary">
+                  Request Corporate Contract
+                </a>
+                <a href="fare-calculator.html" class="btn btn-secondary" style="border-color:#555555;">
+                  Calculate Office Route
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <div class="corporate-cta-frame">
+                <img src="assets/images/sections/p16.jpg"
+                  alt="Modern corporate business park exterior where employees take transit" width="320" height="280"
+                  loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="brand-link">
+            <div class="brand-icon-box">
+              <img src="assets/images/icons/logo.svg" alt="AutoRik Brand Logo" width="40" height="40">
+            </div>
+            <div class="brand-text-wrap">
+              <div class="brand-title">Auto<span>Rik</span></div>
+              <div class="brand-subtitle">City Ride Network</div>
+            </div>
+          </a>
+          <p class="footer-brand-desc">
+            The city's trusted auto rickshaw and point-to-point local transit service with transparent metered fares,
+            GPS safety tracking, and verified drivers.
+          </p>
+          <div class="footer-emergency-badge">
+            <div class="badge-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+            </div>
+            <div class="badge-text">24/7 Helpline: 1800-425-7455</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home 1 (Transit)</a></li>
+            <li><a href="home-2.html">Home 2 (Express)</a></li>
+            <li><a href="about.html">About AutoRik</a></li>
+            <li><a href="how-to-book.html">How to Book</a></li>
+            <li><a href="fare-calculator.html">Fare Calculator</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Services & Safety</div>
+          <ul class="footer-links">
+            <li><a href="safety.html">Driver Background Checks</a></li>
+            <li><a href="safety.html#sos">SOS & Live Trip Sharing</a></li>
+            <li><a href="how-to-book.html#corporate">Corporate Commute Pass</a></li>
+            <li><a href="contact.html#driver">Driver Partner Onboarding</a></li>
+            <li><a href="contact.html">Support & Lost Property</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">City Operations</div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Central Transport Terminal, Anna Salai, Metro Hub</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>dispatch@autorik-transit.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-copy">
+          <div>&copy; 2026 AutoRik Transit Systems. All rights reserved. Built with #FFC400 &amp; #111111 identity.</div>
+          <div class="footer-live-status">
+            <span class="status-pulse-dot"></span>
+            <span>24/7 Police-Verified Dispatch &bull; Live Telemetry Active</span>
+          </div>
+        </div>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Carriage</a>
+          <a href="#">Meter Fare Regulations</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button type="button" class="scroll-to-top" id="scrollTopBtn" aria-label="Scroll to top of page">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5" />
+      <polyline points="5 12 12 5 19 12" />
+    </svg>
+  </button>
+
+  <script src="assets/js/main.js?v=2.8"></script>
+</body>
+
+</html>
